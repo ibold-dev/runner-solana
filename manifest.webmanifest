@@ -1,15 +1,17 @@
 {
-    "name": "Peanut Racoon EVM",
-    "short_name": "Peanut Racoon EVM",
-    "start_url": "index.html",
-    "display": "fullscreen",
-    "background_color": "#231F20",
-    "theme_color": "#000",
-    "description": "",
-    "icons": [{
-      "src": "TemplateData/icons/unity-logo-dark.png",
+  "name": "Peanut Racoon EVM",
+  "short_name": "Peanut Racoon EVM",
+  "start_url": "index.html",
+  "display": "fullscreen",
+  "background_color": "#231F20",
+  "theme_color": "#000",
+  "description": "",
+  "icons": [
+    {
+      "src": "https://res.cloudinary.com/dgpzisfwl/image/upload/v1732907461/zi6dgcczlbiknflhexay.png",
       "sizes": "144x144",
       "type": "image/png",
       "purpose": "any maskable"
-    }]
-  }
+    }
+  ]
+}
