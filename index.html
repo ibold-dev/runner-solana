@@ -19,6 +19,7 @@
       </div>
       <div id="unity-warning"></div>
     </div>
+    <!-- PWA -->
     <div
       id="installPopup"
       style="
@@ -62,6 +63,9 @@
         Close
       </button>
     </div>
+
+    <!-- PWA END -->
+
     <script>
       window.addEventListener("load", function () {
         if ("serviceWorker" in navigator) {
@@ -109,7 +113,7 @@
         frameworkUrl: buildUrl + "/mainevm.framework.js",
         codeUrl: buildUrl + "/mainevm.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "Racoon",
+        companyName: " Racoon Games",
         productName: "Peanut Racoon EVM",
         productVersion: "1.1",
         showBanner: unityShowBanner,
@@ -147,6 +151,8 @@
           });
       };
       document.body.appendChild(script);
+
+      // PWA Install
 
       let deferredPrompt;
 
