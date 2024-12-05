@@ -2,7 +2,7 @@
   "name": "Peanut Racoon EVM",
   "short_name": "Peanut Racoon EVM",
   "start_url": "index.html",
-  "display": "fullscreen",
+  "display": "standalone",
   "background_color": "#231F20",
   "theme_color": "#000",
   "description": "",

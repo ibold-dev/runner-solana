@@ -19,6 +19,9 @@
       </div>
       <div id="unity-warning"></div>
     </div>
+
+    <!-- PWA -->
+
     <div
       id="installPopup"
       style="
@@ -62,6 +65,7 @@
         Close
       </button>
     </div>
+
     <script>
       window.addEventListener("load", function () {
         if ("serviceWorker" in navigator) {
@@ -103,15 +107,15 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/mainevm.loader.js";
+      var loaderUrl = buildUrl + "/mainevm_1.2.loader.js";
       var config = {
-        dataUrl: buildUrl + "/mainevm.data",
-        frameworkUrl: buildUrl + "/mainevm.framework.js",
-        codeUrl: buildUrl + "/mainevm.wasm",
+        dataUrl: buildUrl + "/mainevm_1.2.data",
+        frameworkUrl: buildUrl + "/mainevm_1.2.framework.js",
+        codeUrl: buildUrl + "/mainevm_1.2.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Racoon",
         productName: "Peanut Racoon EVM",
-        productVersion: "1.1",
+        productVersion: "1.2",
         showBanner: unityShowBanner,
       };
 
@@ -147,6 +151,8 @@
           });
       };
       document.body.appendChild(script);
+
+      // EXTRA
 
       let deferredPrompt;
 
