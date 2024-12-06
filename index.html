@@ -1,71 +1,24 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Peanut Racoon EVM</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico" />
-    <link rel="stylesheet" href="TemplateData/style.css" />
-    <link rel="manifest" href="manifest.webmanifest" />
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | PNUT Racoon</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <link rel="manifest" href="manifest.webmanifest">
   </head>
   <body>
     <div id="unity-container">
-      <canvas id="unity-canvas" width="960" height="600" tabindex="-1"></canvas>
+      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
           <div id="unity-progress-bar-full"></div>
         </div>
       </div>
-      <div id="unity-warning"></div>
+      <div id="unity-warning"> </div>
     </div>
-
-    <!-- PWA -->
-
-    <div
-      id="installPopup"
-      style="
-        display: none;
-        position: fixed;
-        top: 20%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 20px;
-        background: white;
-        border: 2px solid #ccc;
-        border-radius: 8px;
-        text-align: center;
-        z-index: 1000;
-      "
-    >
-      <h3>Install PNUT Racoon Game</h3>
-      <p>Get quick access by adding our game to your home screen!</p>
-      <button
-        onclick="installPWA()"
-        style="
-          padding: 10px 20px;
-          background-color: #d8ac0c;
-          color: white;
-          border: none;
-          border-radius: 5px;
-        "
-      >
-        Install
-      </button>
-      <button
-        onclick="document.getElementById('installPopup').style.display = 'none'"
-        style="
-          padding: 10px 20px;
-          background-color: #ccc;
-          border: none;
-          border-radius: 5px;
-          margin-left: 10px;
-        "
-      >
-        Close
-      </button>
-    </div>
-
     <script>
       window.addEventListener("load", function () {
         if ("serviceWorker" in navigator) {
@@ -87,18 +40,15 @@
       // user.
       function unityShowBanner(msg, type) {
         function updateBannerVisibility() {
-          warningBanner.style.display = warningBanner.children.length
-            ? "block"
-            : "none";
+          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
         }
-        var div = document.createElement("div");
+        var div = document.createElement('div');
         div.innerHTML = msg;
         warningBanner.appendChild(div);
-        if (type == "error") div.style = "background: red; padding: 10px;";
+        if (type == 'error') div.style = 'background: red; padding: 10px;';
         else {
-          if (type == "warning")
-            div.style = "background: yellow; padding: 10px;";
-          setTimeout(function () {
+          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+          setTimeout(function() {
             warningBanner.removeChild(div);
             updateBannerVisibility();
           }, 5000);
@@ -107,15 +57,15 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/mainevm_1.2.loader.js";
+      var loaderUrl = buildUrl + "/pnut_game_v1.loader.js";
       var config = {
-        dataUrl: buildUrl + "/mainevm_1.2.data",
-        frameworkUrl: buildUrl + "/mainevm_1.2.framework.js",
-        codeUrl: buildUrl + "/mainevm_1.2.wasm",
+        dataUrl: buildUrl + "/pnut_game_v1.data",
+        frameworkUrl: buildUrl + "/pnut_game_v1.framework.js",
+        codeUrl: buildUrl + "/pnut_game_v1.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "Racoon",
-        productName: "Peanut Racoon EVM",
-        productVersion: "1.2",
+        companyName: "PNUT Games",
+        productName: "PNUT Racoon",
+        productVersion: "1.0",
         showBanner: unityShowBanner,
       };
 
@@ -128,11 +78,10 @@
 
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
-        var meta = document.createElement("meta");
-        meta.name = "viewport";
-        meta.content =
-          "width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes";
-        document.getElementsByTagName("head")[0].appendChild(meta);
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
       }
 
       loadingBar.style.display = "block";
@@ -142,40 +91,13 @@
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
-        })
-          .then((unityInstance) => {
-            loadingBar.style.display = "none";
-          })
-          .catch((message) => {
-            alert(message);
-          });
+        }).then((unityInstance) => {
+          loadingBar.style.display = "none";
+        }).catch((message) => {
+          alert(message);
+        });
       };
       document.body.appendChild(script);
-
-      // EXTRA
-
-      let deferredPrompt;
-
-      window.addEventListener("beforeinstallprompt", (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-        document.getElementById("installPopup").style.display = "block"; // Show your custom pop-up
-      });
-
-      function installPWA() {
-        if (deferredPrompt) {
-          deferredPrompt.prompt();
-          deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === "accepted") {
-              console.log("User accepted the install prompt");
-            } else {
-              console.log("User dismissed the install prompt");
-            }
-            deferredPrompt = null;
-          });
-        }
-        document.getElementById("installPopup").style.display = "none"; // Hide the pop-up
-      }
     </script>
   </body>
 </html>
