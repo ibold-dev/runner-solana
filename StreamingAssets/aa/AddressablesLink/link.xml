@@ -10,7 +10,6 @@
     <type fullname="ExtraLife" preserve="all" />
     <type fullname="HighscoreUI" preserve="all" />
     <type fullname="Invincibility" preserve="all" />
-    <type fullname="Missile" preserve="all" />
     <type fullname="MissionEntry" preserve="all" />
     <type fullname="MissionUI" preserve="all" />
     <type fullname="PatrollingObstacle" preserve="all" />

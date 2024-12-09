@@ -1,17 +1,15 @@
 {
-  "name": "Peanut Racoon EVM",
-  "short_name": "Peanut Racoon EVM",
-  "start_url": "index.html",
-  "display": "standalone",
-  "background_color": "#231F20",
-  "theme_color": "#000",
-  "description": "",
-  "icons": [
-    {
+    "name": "PNUT Raccoon Runner",
+    "short_name": "PNUT Raccoon Runner",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#FFFFFF",
+    "theme_color": "#000",
+    "description": "",
+    "icons": [{
       "src": "https://res.cloudinary.com/dgpzisfwl/image/upload/v1732907461/zi6dgcczlbiknflhexay.png",
       "sizes": "144x144",
       "type": "image/png",
       "purpose": "any maskable"
-    }
-  ]
-}
+    }]
+  }

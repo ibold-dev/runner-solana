@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | PNUT Racoon</title>
+    <title>Unity WebGL Player | PNUT Raccoon Runner</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="manifest" href="manifest.webmanifest">
   </head>
   <body>
     <div id="unity-container">
-      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
+      <canvas id="unity-canvas" width=1920 height=1080 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -57,14 +57,14 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/pnut_game_v1.loader.js";
+      var loaderUrl = buildUrl + "/dev_test.loader.js";
       var config = {
-        dataUrl: buildUrl + "/pnut_game_v1.data",
-        frameworkUrl: buildUrl + "/pnut_game_v1.framework.js",
-        codeUrl: buildUrl + "/pnut_game_v1.wasm",
+        dataUrl: buildUrl + "/dev_test.data",
+        frameworkUrl: buildUrl + "/dev_test.framework.js",
+        codeUrl: buildUrl + "/dev_test.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "PNUT Games",
-        productName: "PNUT Racoon",
+        companyName: "Raccoon Games",
+        productName: "PNUT Raccoon Runner",
         productVersion: "1.0",
         showBanner: unityShowBanner,
       };
@@ -84,6 +84,7 @@
         document.getElementsByTagName('head')[0].appendChild(meta);
       }
 
+      canvas.style.background = "url('" + buildUrl + "/dev_test.jpg') center / cover";
       loadingBar.style.display = "block";
 
       var script = document.createElement("script");
