@@ -65,11 +65,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/new.loader.js";
+      var loaderUrl = buildUrl + "/pnut.loader.js";
       var config = {
-        dataUrl: buildUrl + "/new.data",
-        frameworkUrl: buildUrl + "/new.framework.js",
-        codeUrl: buildUrl + "/new.wasm",
+        dataUrl: buildUrl + "/pnut.data",
+        frameworkUrl: buildUrl + "/pnut.framework.js",
+        codeUrl: buildUrl + "/pnut.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Raccoon Games",
         productName: "PNUT Raccoon Runner",
@@ -94,7 +94,7 @@
       }
 
       canvas.style.background =
-        "url('" + buildUrl + "/new.jpg') center / cover";
+        "url('" + buildUrl + "/pnut.jpg') center / cover";
       loadingBar.style.display = "block";
 
       var script = document.createElement("script");
@@ -112,7 +112,6 @@
       };
       document.body.appendChild(script);
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/ethers@5/dist/ethers.umd.min.js"></script>
-    <!-- <script src="ethers-plugin.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6/dist/ethers.umd.min.js"></script>
   </body>
 </html>
